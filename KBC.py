@@ -57,7 +57,7 @@ else:
     # બધા પ્રશ્નો પતી ગયા હોય તો
     if q_idx >= len(Questions):
         st.balloons()
-        st.success(f"🥳 congratulations !! te che ne badha answer bhul thi sacha aapi didha. tu total ₹{st.session_state.money} jeetyo che have to barbie que jau pade!")
+        st.success(f"🥳 congratulations !! tu che ne badha answer bhul thi sacha aapi didha. tu total ₹{st.session_state.money} jeetyo che have to barbie que jau pade!")
         if st.button("farithi ram bhai tu 🔄"):
             st.session_state.current_question = 0
             st.session_state.money = 0
