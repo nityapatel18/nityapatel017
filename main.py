@@ -1,6 +1,17 @@
 import streamlit as st
 
-# પ્રશ્નો અને જવાબોની યાદી (તારો જ ડેટા)
+# ✅ ૧. જવાબ ચેક કરવાનું ફંક્શન (સૌથી ઉપર લાવી દીધું, એટલે હવે લાઈન ૫૭ પર NameError નહીં આવે)
+def check_answer(user_ans, correct_ans, current_level_money):
+    if user_ans == correct_ans:
+        st.session_state.money = current_level_money
+        st.session_state.current_question += 1
+        st.toast("correct !", icon="🎉")
+        st.rerun()
+    else:
+        st.session_state.game_over = True
+        st.rerun()
+
+# પ્રશ્નો અને જવાબોની યાદી (તારા નવા પ્રશ્નો સાથે)
 Questions = [
     ["What is the capital of India?", "Delhi", "Mumbai", "Kolkata", "Chennai", 1],
     ["What is the largest planet in our solar system?", "Jupiter", "Saturn", "Neptune", "Uranus", 1],
@@ -72,14 +83,3 @@ else:
                 check_answer(3, q_data[5], levels[q_idx])
             if st.button(f"4️⃣ {q_data[4]}", use_container_width=True):
                 check_answer(4, q_data[5], levels[q_idx])
-
-# જવાબ ચેક કરવાનું ફંક્શન
-def check_answer(user_ans, correct_ans, current_level_money):
-    if user_ans == correct_ans:
-        st.session_state.money = current_level_money
-        st.session_state.current_question += 1
-        st.toast("correct !", icon="🎉")
-        st.rerun()
-    else:
-        st.session_state.game_over = True
-        st.rerun()
